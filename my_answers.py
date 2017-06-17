@@ -51,8 +51,8 @@ def clean_text(text):
     print('all characters: {}'.format(''.join(char_set)))
     
     # create white list of characters to keep
-    punctuation_char_set = set([ c for c in '!"\'(),-./:;? '])
-    englist_char_set = set([ c for c in 'abcdefghijklmnopqrstuvwxyz'])
+    punctuation_char_set = set([' ', '!', ',', '.', ':', ';', '?'])
+    englist_char_set = set([ c for c in string.ascii_lowercase])
     whitelist_char_set = punctuation_char_set | englist_char_set
     
     # remove as many non-english characters and character sequences as you can 
@@ -66,6 +66,8 @@ def clean_text(text):
         text = text.replace('  ',' ')
         if text_len == len(text):
             break
+    
+    return text
 
 
 ### TODO: fill out the function below that transforms the input text and window-size into a set of input/output pairs for use with our RNN model
