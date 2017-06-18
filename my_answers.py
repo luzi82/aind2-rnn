@@ -80,7 +80,7 @@ def window_transform_text(text,window_size,step_size):
     outputs = []
     
     # create the X, Y array
-    inputs  = [ text[i:i+window_size] for i in range(output_len) if i % step_size == 0 ]
-    outputs = [ text[i+window_size]   for i in range(output_len) if i % step_size == 0 ]
+    inputs  = [ text[i:i+window_size] for i in range(0,output_len,step_size) ]
+    outputs = [ text[i+window_size]   for i in range(0,output_len,step_size) ]
         
     return inputs,outputs
